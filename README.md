@@ -9,6 +9,14 @@ Lazily deserialize JSON into strongly typed Swift objects, with a few getter sty
 
 Is your app using it? [Let me know!](mailto:rob@desideratalabs.co)
 
+### Installation
+
+Quickly install using [CocoaPods](https://cocoapods.org): 
+
+```ruby
+pod 'LazyObject'
+```
+
 ### API
 
 Let's look at an example model to show off some of the functionality:
