@@ -1,0 +1,3 @@
+coverage_service: coveralls
+xcodeproj: LazyObject.xcodeproj
+source_directory: Source
