@@ -33,15 +33,4 @@ public class LazyObject: LazyMapping {
         self.dictionary = NSMutableDictionary(dictionary: pruneNullValues ? dictionary.pruneNullValues() : dictionary)
     }
 
-    /**
-     Instantiates the class with the given JSON dictionary, pruning all keys with null values
-
-     - parameter dictionary: JSON dictionary
-
-     - returns: An object with lazily transformed properties from the underlying dictionary
-     */
-    public convenience init(dictionary: NSDictionary) {
-        self.init(dictionary: dictionary, pruneNullValues: true)
-    }
-
 }

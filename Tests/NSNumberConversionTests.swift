@@ -9,7 +9,7 @@
 import XCTest
 @testable import LazyObject
 
-class ConversionTests: XCTestCase {
+final class NSNumberConversionTests: XCTestCase {
 
     class Object: LazyObject {
         var number: NSNumber    { return try! objectFor("number") }

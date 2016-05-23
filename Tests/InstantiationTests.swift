@@ -9,7 +9,7 @@
 import XCTest
 @testable import LazyObject
 
-class InstantiationTests: XCTestCase {
+final class InstantiationTests: XCTestCase {
 
     func testInstantiatingWithEmptyDictionary() {
         class Object: LazyObject {}

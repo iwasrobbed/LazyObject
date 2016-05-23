@@ -33,7 +33,7 @@ public protocol LazyMapping {
     init(dictionary: NSDictionary, pruneNullValues: Bool)
 }
 
-// MARK: - Default Implementation
+// MARK: - Default Getter Implementations
 
 public extension LazyMapping {
 
@@ -58,7 +58,7 @@ public extension LazyMapping {
     /**
      Retrieves a typed object
 
-     - parameter keyPath: The key to get a value for
+     - parameter keyPath: The key / key path to get a value for
 
      - throws: A `LazyMappingError` depending on the circumstances
 
@@ -86,7 +86,7 @@ public extension LazyMapping {
     /**
      Retrieves an array of objects
 
-     - parameter keyPath: The key to get a value for
+     - parameter keyPath: The key / key path to get a value for
 
      - throws: A `LazyMappingError` depending on the circumstances
 
@@ -102,7 +102,7 @@ public extension LazyMapping {
     /**
      Retrieves an object that conforms to the `LazyConvertible` protocol
 
-     - parameter keyPath: The key to get a value for
+     - parameter keyPath: The key / key path to get a value for
 
      - throws: A `LazyMappingError` depending on the circumstances
 
@@ -111,6 +111,34 @@ public extension LazyMapping {
     @warn_unused_result
     public func objectFor<T: LazyConvertible where T == T.ConvertedType>(keyPath: String) throws -> T {
         return try objectFor(keyPath, convertWith: T.convert)
+    }
+
+}
+
+// MARK: - Default Setter Implementations
+
+public extension LazyMapping {
+
+    /**
+     Sets the object for the given setter selector
+
+     - parameter setter: The `#function` to set (e.g. for a property named `name`, specifying #function will convert it to a string of `name`)
+     */
+    public func setObject(object: AnyObject?, setter: Selector) {
+        setObject(object, keyPath: NSStringFromSelector(setter))
+    }
+
+    /**
+     Sets the object for the given key / key path
+
+     - parameter keyPath: The key / key path to set the value for
+     */
+    public func setObject(object: AnyObject?, keyPath: String) {
+        if let object = object {
+            dictionary.setObject(object, forKey: keyPath)
+        } else {
+            dictionary.removeObjectForKey(keyPath)
+        }
     }
 
 }

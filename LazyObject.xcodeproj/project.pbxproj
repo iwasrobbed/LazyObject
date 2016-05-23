@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40AD0AF1CF3B3CC0093B743 /* SetterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */; };
 		D42D3E821CF11F8F0070E789 /* LazyConvertible+NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */; };
 		D42D3E831CF11F8F0070E789 /* NSDictionary+Null.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */; };
 		D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7E1CF11F8F0070E789 /* LazyObject.swift */; };
@@ -15,10 +16,12 @@
 		D42D3E871CF11F8F0070E789 /* LazyMappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E811CF11F8F0070E789 /* LazyMappingError.swift */; };
 		D42D3E891CF123BF0070E789 /* LazyObject+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */; };
 		D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */; };
+		D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */; };
+		D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E21CF36C8400650211 /* NSURLConversionTests.swift */; };
 		D4BCBAC41CF0D21E0014D111 /* LazyObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCBAB91CF0D21D0014D111 /* LazyObject.framework */; };
 		D4BCBAD71CF0D2530014D111 /* ValueTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */; };
 		D4BCBAEC1CF0D8950014D111 /* NullValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAEB1CF0D8950014D111 /* NullValueTests.swift */; };
-		D4BCBAEE1CF0D8EE0014D111 /* ConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAED1CF0D8EE0014D111 /* ConversionTests.swift */; };
+		D4BCBAEE1CF0D8EE0014D111 /* NSNumberConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAED1CF0D8EE0014D111 /* NSNumberConversionTests.swift */; };
 		D4BCBAF01CF0D9020014D111 /* ErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAEF1CF0D9020014D111 /* ErrorTests.swift */; };
 		D4BCBAF21CF0E4810014D111 /* LazyValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAF11CF0E4810014D111 /* LazyValueTests.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetterTests.swift; sourceTree = "<group>"; };
 		D42D3E771CF11F730070E789 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+NSNumber.swift"; sourceTree = "<group>"; };
 		D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Null.swift"; sourceTree = "<group>"; };
@@ -43,11 +47,13 @@
 		D42D3E811CF11F8F0070E789 /* LazyMappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMappingError.swift; sourceTree = "<group>"; };
 		D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyObject+Array.swift"; sourceTree = "<group>"; };
 		D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantiationTests.swift; sourceTree = "<group>"; };
+		D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+NSURL.swift"; sourceTree = "<group>"; };
+		D49964E21CF36C8400650211 /* NSURLConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLConversionTests.swift; sourceTree = "<group>"; };
 		D4BCBAB91CF0D21D0014D111 /* LazyObject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LazyObject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BCBAC31CF0D21E0014D111 /* LazyObjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyObjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTypeTests.swift; sourceTree = "<group>"; };
 		D4BCBAEB1CF0D8950014D111 /* NullValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullValueTests.swift; sourceTree = "<group>"; };
-		D4BCBAED1CF0D8EE0014D111 /* ConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversionTests.swift; sourceTree = "<group>"; };
+		D4BCBAED1CF0D8EE0014D111 /* NSNumberConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSNumberConversionTests.swift; sourceTree = "<group>"; };
 		D4BCBAEF1CF0D9020014D111 /* ErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorTests.swift; sourceTree = "<group>"; };
 		D4BCBAF11CF0E4810014D111 /* LazyValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyValueTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */,
+				D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */,
 			);
 			path = Conversions;
 			sourceTree = "<group>";
@@ -123,12 +130,14 @@
 		D4BCBAD31CF0D2530014D111 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D4BCBAED1CF0D8EE0014D111 /* ConversionTests.swift */,
+				D4BCBAED1CF0D8EE0014D111 /* NSNumberConversionTests.swift */,
+				D49964E21CF36C8400650211 /* NSURLConversionTests.swift */,
 				D4BCBAEF1CF0D9020014D111 /* ErrorTests.swift */,
 				D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */,
 				D4BCBAF11CF0E4810014D111 /* LazyValueTests.swift */,
 				D4BCBAEB1CF0D8950014D111 /* NullValueTests.swift */,
 				D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */,
+				D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -242,6 +251,7 @@
 			files = (
 				D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */,
 				D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */,
+				D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */,
 				D42D3E891CF123BF0070E789 /* LazyObject+Array.swift in Sources */,
 				D42D3E871CF11F8F0070E789 /* LazyMappingError.swift in Sources */,
 				D42D3E821CF11F8F0070E789 /* LazyConvertible+NSNumber.swift in Sources */,
@@ -255,10 +265,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4BCBAF01CF0D9020014D111 /* ErrorTests.swift in Sources */,
-				D4BCBAEE1CF0D8EE0014D111 /* ConversionTests.swift in Sources */,
+				D4BCBAEE1CF0D8EE0014D111 /* NSNumberConversionTests.swift in Sources */,
 				D4BCBAEC1CF0D8950014D111 /* NullValueTests.swift in Sources */,
+				D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */,
 				D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */,
 				D4BCBAF21CF0E4810014D111 /* LazyValueTests.swift in Sources */,
+				D40AD0AF1CF3B3CC0093B743 /* SetterTests.swift in Sources */,
 				D4BCBAD71CF0D2530014D111 /* ValueTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

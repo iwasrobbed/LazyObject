@@ -9,7 +9,7 @@
 import XCTest
 @testable import LazyObject
 
-class LazyValueTests: XCTestCase {
+final class LazyValueTests: XCTestCase {
 
     class Object: LazyObject {
         var otherObjects: [OtherObject] { return try! objectFor("other_objects") }

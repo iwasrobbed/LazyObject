@@ -9,7 +9,7 @@
 import XCTest
 @testable import LazyObject
 
-class ErrorTests: XCTestCase {
+final class ErrorTests: XCTestCase {
 
     func testKeyPathValueNotFoundError() {
         class Object: LazyObject {
@@ -22,8 +22,8 @@ class ErrorTests: XCTestCase {
             XCTFail()
         } catch LazyMappingError.KeyPathValueNotFoundError(_) {
             XCTAssertNil(object.missingKey)
-        } catch {
-            XCTFail()
+        } catch let e {
+            XCTFail("Test failed for an unexpected reason: \(e)")
         }
     }
 
@@ -41,8 +41,8 @@ class ErrorTests: XCTestCase {
             XCTFail()
         } catch LazyMappingError.ConversionError(_, _, _) {
             XCTAssertNil(object.badType)
-        } catch {
-            XCTFail()
+        } catch let e {
+            XCTFail("Test failed for an unexpected reason: \(e)")
         }
     }
 
@@ -58,8 +58,8 @@ class ErrorTests: XCTestCase {
             XCTFail()
         } catch LazyMappingError.UnexpectedTypeError(_, _) {
             XCTAssertNil(object.badType)
-        } catch {
-            XCTFail()
+        } catch let e {
+            XCTFail("Test failed for an unexpected reason: \(e)")
         }
     }
 
@@ -75,8 +75,8 @@ class ErrorTests: XCTestCase {
             XCTFail()
         } catch LazyMappingError.CustomError(_) {
             XCTAssertNil(object.badNumberValue)
-        } catch {
-            XCTFail()
+        } catch let e {
+            XCTFail("Test failed for an unexpected reason: \(e)")
         }
     }
 
