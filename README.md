@@ -1,6 +1,9 @@
 ## LazyObject
-
+[![Coverage Status](https://coveralls.io/repos/github/iwasrobbed/LazyObject/badge.svg?branch=master)](https://coveralls.io/github/iwasrobbed/LazyObject?branch=master)
+[![Build Status](https://travis-ci.org/iwasrobbed/LazyObject.svg?branch=master)](https://travis-ci.org/iwasrobbed/LazyObject)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/iwasrobbed/LazyObject/blob/master/LICENSE)
+[![CocoaPods](https://img.shields.io/cocoapods/v/LazyObject.svg?maxAge=2592000)]()
+[![Swift](https://img.shields.io/badge/language-Swift-blue.svg)](https://swift.org)
 
 Lazily deserialize JSON into strongly typed Swift objects, with a few getter style options.
 
