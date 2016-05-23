@@ -28,5 +28,29 @@ final class NSURLConversionTests: XCTestCase {
         XCTAssertTrue(value is NSURL)
         XCTAssertTrue(url.absoluteString == NSURLConversionTests.absoluteString)
     }
+
+    func testErrorThrownForUnexpectedOriginalValue() {
+        let badObject = Object(dictionary: ["url": 42])
+        do {
+            let _: NSURL = try badObject.objectFor("url")
+            XCTFail()
+        } catch LazyMappingError.UnexpectedTypeError {
+            // Catching = great success
+        } catch let e {
+            XCTFail("Test failed for an unexpected reason: \(e)")
+        }
+    }
+
+    func testErrorThrownForMalformedURL() {
+        let badObject = Object(dictionary: ["url": "blerp this is not a url"])
+        do {
+            let _: NSURL = try badObject.objectFor("url")
+            XCTFail()
+        } catch LazyMappingError.CustomError {
+            // Catching = great success
+        } catch let e {
+            XCTFail("Test failed for an unexpected reason: \(e)")
+        }
+    }
     
 }
