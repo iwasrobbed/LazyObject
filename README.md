@@ -83,6 +83,25 @@ extension NSNumber: LazyConvertible {
 
 This will allow you to seamlessly support any type of valid `NSNumber`, whether from string or from a number value, just by using the normal `objectFor` methods.
 
+### Setting Values
+
+LazyObject is focused mostly on read-only models, but you can still easily expose a setter on the model if necessary:
+
+```swift
+class Object: LazyObject {
+    var id: NSNumber? {
+        get {
+            return try? objectFor(#function)
+        }
+        set {
+            setObject(newValue, setter: #function)
+        }
+    }
+}
+```
+
+Note: Similar to the [getter methods](#key-getter-options), both the setter `#function` can be used or the `keyPath` can be used to reference the key name to update.
+
 ### Supports
 Swift, ARC & iOS 9+
 
