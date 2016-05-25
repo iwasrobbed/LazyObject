@@ -25,6 +25,11 @@ public enum LazyMappingError: ErrorType {
     case UnexpectedTypeError(value: AnyObject?, type: Any.Type)
 
     /**
+      Thrown when a date string could not be properly transformed into an `NSDate`
+     */
+    case DateConversionError(message: String)
+
+    /**
       Typically thrown during conversions/transformations
      */
     case CustomError(message: String)

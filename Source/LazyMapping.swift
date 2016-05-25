@@ -37,7 +37,7 @@ public protocol LazyMapping {
 
 public extension LazyMapping {
 
-    // MARK: - JSON Types
+    // MARK: - Generic JSON Types
 
     /**
      Retrieves a typed object
@@ -115,6 +115,26 @@ public extension LazyMapping {
 
 }
 
+// MARK: - Date Types
+
+public extension LazyMapping where Self: LazyDateFormattable {
+
+    @warn_unused_result
+    public func dateFor(getter: Selector) throws -> NSDate {
+        return try dateFor(NSStringFromSelector(getter))
+    }
+
+    @warn_unused_result
+    public func dateFor(keyPath: String) throws -> NSDate {
+        let dateValue: AnyObject = try objectFor(keyPath)
+        if dateValue is Double {
+            return try convertToDate(dateValue as! Double)
+        }
+        return try convertToDate(dateValue as! String)
+    }
+
+}
+
 // MARK: - Default Setter Implementations
 
 public extension LazyMapping {
@@ -147,7 +167,7 @@ public extension LazyMapping {
 
 private extension LazyMapping {
 
-    // MARK: - JSON Types
+    // MARK: - Generic JSON Types
 
     func objectForJSONType<T>(keyPath: String) throws -> T {
         let value = try valueForKeyPath(keyPath)
