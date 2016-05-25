@@ -9,6 +9,8 @@
 import XCTest
 @testable import LazyObject
 
+// MARK: - Happy Day Tests
+
 final class DateTests: XCTestCase {
 
     func testValidISO8601() {
@@ -67,10 +69,12 @@ final class DateTests: XCTestCase {
         class Object: LazyObject, EpochFormattable {
             var dateString: NSDate? { return try? dateFor("date_string") }
             var dateDouble: NSDate? { return try? dateFor("date_double") }
+            var getter: NSDate?     { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date_string": "1461508962.424",
-                                         "date_double": 1461508962.424])
+                                         "date_double": 1461508962.424,
+                                         "getter": 1461508962.424])
 
         guard let dateDouble = object.dateDouble else {
             XCTFail("NSDate couldn't convert double to epoch")
@@ -83,6 +87,65 @@ final class DateTests: XCTestCase {
             return
         }
         XCTAssertTrue(dateString.dateMatches(millisecond: 424))
+
+        guard let dateGetter = object.getter else {
+            XCTFail("Failed to get date via getter selector")
+            return
+        }
+        XCTAssertTrue(dateGetter.dateMatches(millisecond: 424))
+    }
+
+}
+
+// MARK: - Error & Failure Tests
+
+extension DateTests {
+
+    func testProperProtocolConformance() {
+        class Object: LazyObject, LazyDateFormattable {
+            var date: NSDate?   { return try? dateFor(#function) }
+        }
+
+        let object = Object(dictionary: ["date": "Sunday, 24-Apr-16 14:42:42 UTC"])
+        let date = object.date
+        if date == nil { return }
+
+        XCTFail("Should have thrown an error and returned nil since you can't conform to this protocol.")
+    }
+
+    func testProperEpochProtocolConformance() {
+        class Object: LazyObject, LazyDateFormattable {
+            var date: NSDate?   { return try? dateFor(#function) }
+        }
+
+        let object = Object(dictionary: ["date": 1461508962.424])
+        let date = object.date
+        if date == nil { return }
+
+        XCTFail("Should have thrown an error and returned nil since you can't conform to this protocol.")
+    }
+
+    func testEpochDoubleConversionToString() {
+        class Object: LazyObject, EpochFormattable {}
+
+        let object = Object(dictionary: [:])
+        let date = try? object.convertToDate("this is not a double")
+        if date == nil { return }
+
+        XCTFail("Should have thrown an error and returned nil since that wasn't a valid double.")
+    }
+
+    func testBadDateFormatForAnyFormatter() {
+        class Object: LazyObject, ISO8601Formattable {
+            var date: NSDate?   { return try? dateFor(#function) }
+        }
+
+        // Pass in an epoch time to something expecting ISO 8601 format
+        let object = Object(dictionary: ["date": "1461508962.424"])
+        let date = object.date
+        if date == nil { return }
+
+        XCTFail("Should have thrown an error and returned nil since the formatter shouldn't have recognized this format.")
     }
 
 }

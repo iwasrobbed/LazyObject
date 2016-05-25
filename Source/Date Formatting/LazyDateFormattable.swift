@@ -83,12 +83,12 @@ public extension LazyDateFormattable {
 
     @warn_unused_result
     public func convertToDate(dateString: String) throws -> NSDate {
-        fatalError("Must use one of the specialized LazyDateFormattable protocols (e.g. ISO8601Formattable)")
+        throw LazyMappingError.CustomError(message: "Must use one of the specialized LazyDateFormattable protocols (e.g. ISO8601Formattable)")
     }
 
     @warn_unused_result
     public func convertToDate(epoch: Double) throws -> NSDate {
-        fatalError("Must use the specialized EpochFormattable protocol")
+        throw LazyMappingError.CustomError(message: "Must use the specialized EpochFormattable protocol")
     }
 
 }
