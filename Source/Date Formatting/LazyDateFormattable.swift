@@ -63,15 +63,51 @@ extension EpochFormattable {
 
 public protocol LazyDateFormattable {
 
+    /**
+     Retrieves an `NSDate`, transformed based on the type of `LazyDateFormattable` that was used
+
+     - parameter keyPath: The key / key path to get the date for
+
+     - throws: A `LazyMappingError` depending on the circumstances
+
+     - returns: An `NSDate` object, converted using a `LazyDateFormattable` protocol; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
+     */
     @warn_unused_result
     func dateFor(keyPath: String) throws -> NSDate
 
+    /**
+     Retrieves an `NSDate`, transformed based on the type of `LazyDateFormattable` that was used
+
+     - parameter getter: The `#function` to get (e.g. for a property named `name`, specifying #function will convert it to a string of `name`)
+
+     - throws: A `LazyMappingError` depending on the circumstances
+
+     - returns: An `NSDate` object, converted using a `LazyDateFormattable` protocol; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
+     */
     @warn_unused_result
     func dateFor(getter: Selector) throws -> NSDate
 
+    /**
+     Converts the given date time string to an `NSDate` based on the type of formattable used
+
+     - parameter dateString: The date time string to convert
+
+     - throws: A `LazyMappingError` depending on the circumstances
+
+     - returns: An `NSDate`
+     */
     @warn_unused_result
     func convertToDate(dateString: String) throws -> NSDate
 
+    /**
+     Converts the given epoch time to an `NSDate`
+
+     - parameter epoch: A double representing the epoch time
+
+     - throws: A `LazyMappingError` depending on the circumstances
+
+     - returns: An `NSDate`
+     */
     @warn_unused_result
     func convertToDate(epoch: Double) throws -> NSDate
 
@@ -81,11 +117,29 @@ public protocol LazyDateFormattable {
 
 public extension LazyDateFormattable {
 
+    /**
+     Converts the given date time string to an `NSDate` based on the type of formattable used
+
+     - parameter dateString: The date time string to convert
+
+     - throws: A `LazyMappingError` depending on the circumstances
+
+     - returns: An `NSDate`
+     */
     @warn_unused_result
     public func convertToDate(dateString: String) throws -> NSDate {
         throw LazyMappingError.CustomError(message: "Must use one of the specialized LazyDateFormattable protocols (e.g. ISO8601Formattable)")
     }
 
+    /**
+     Converts the given epoch time to an `NSDate`
+
+     - parameter epoch: A double representing the epoch time
+
+     - throws: A `LazyMappingError` depending on the circumstances
+
+     - returns: An `NSDate`
+     */
     @warn_unused_result
     public func convertToDate(epoch: Double) throws -> NSDate {
         throw LazyMappingError.CustomError(message: "Must use the specialized EpochFormattable protocol")

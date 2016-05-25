@@ -59,7 +59,7 @@ Any of your base or sub-classes can conform to *one* of the supported protocols:
 
 * ISO8601Formattable (e.g. "2016-04-24T14:42:42.424Z")
 * RFC3339Formattable (e.g. "2016-04-24T14:42:42Z")
-* RFC1123Formattable (e.g. "Sun, 24 Apr 2016 14:42:42 +0000"")
+* RFC1123Formattable (e.g. "Sun, 24 Apr 2016 14:42:42 +0000")
 * RFC850Formattable (e.g. "Sunday, 24-Apr-16 14:42:42 UTC")
 * EpochFormattable (e.g. "1461508962.424" as a string or 1461508962.424 as a double)
 
