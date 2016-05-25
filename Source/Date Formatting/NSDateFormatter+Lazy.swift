@@ -12,6 +12,13 @@ extension NSDateFormatter {
 
     public struct Lazy {
 
+        /**
+         Creates a formatter for use with date string conversions
+
+         - parameter string: The format string to parse the date with
+
+         - returns: An `NSDateFormatter` with UTC timezone and `en_US_POSIX` locale
+         */
         static func formatterFrom(string: String) -> NSDateFormatter {
             let formatter = NSDateFormatter()
             formatter.dateFormat = string
