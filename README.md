@@ -43,6 +43,30 @@ There is also a convenience extension for instantiating from JSON arrays:
 let banks = Bank.fromArray(jsonArrayOfDictionaries)
 ```
 
+### Date Formattables
+
+Since many services have varying date formats, LazyObject provides an easy way to specify which standard or custom format you'd like to conform to.
+
+```swift
+class Retirement: LazyObject, ISO8601Formattable {
+  var date: NSDate?   { return try? dateFor(#function) }
+}
+```
+
+**Note**: For dates, you must specifically use the `dateFor()` method so it will choose the correct formatter from the cache.
+
+Any of your base or sub-classes can conform to *one* of the supported protocols:
+
+* ISO8601Formattable (e.g. "2016-04-24T14:42:42.424Z")
+* RFC3339Formattable (e.g. "2016-04-24T14:42:42Z")
+* RFC1123Formattable (e.g. "Sun, 24 Apr 2016 14:42:42 +0000"")
+* RFC850Formattable (e.g. "Sunday, 24-Apr-16 14:42:42 UTC")
+* EpochFormattable (e.g. "1461508962.424" as a string or 1461508962.424 as a double)
+
+Or you're free to extend `LazyDateFormattable` to create custom date conversions (look at how the above protocols are implemented for an example).
+
+All formatters above are created once and cached for re-use, and it is recommended you do the same if you create custom formattables since they tend to be expensive to create.
+
 ### Key Getter Options
 
 The `objectFor` method supports a couple variations for key names:
@@ -55,6 +79,14 @@ The `objectFor` method supports a couple variations for key names:
 Notice in the example that you can use `try?` to ensure optional safety on the properties. If you're feeling confident, you can use `try!` to force it but you may receive one of a few runtime errors if it doesn't succeed.
 
 ### Convertibles
+
+Aside from standard JSON data types, the following types are seamlessly supported:
+
+* NSDate
+* NSURL
+* NSNumber
+
+### Custom Convertibles
 
 If you want to seamlessly convert a custom value, such as to create an `NSNumber` from a string value, you can create your own extensions of `LazyConvertible` like so:
 
