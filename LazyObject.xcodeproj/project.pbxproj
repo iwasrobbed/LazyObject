@@ -15,6 +15,10 @@
 		D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E801CF11F8F0070E789 /* LazyMapping.swift */; };
 		D42D3E871CF11F8F0070E789 /* LazyMappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E811CF11F8F0070E789 /* LazyMappingError.swift */; };
 		D42D3E891CF123BF0070E789 /* LazyObject+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */; };
+		D4418C7A1CF4C226001A9E94 /* NSDate+Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C791CF4C226001A9E94 /* NSDate+Formatters.swift */; };
+		D4418C7C1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7B1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift */; };
+		D4418C7E1CF4E449001A9E94 /* LazyDateFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7D1CF4E449001A9E94 /* LazyDateFormattable.swift */; };
+		D4418C801CF4EE7E001A9E94 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */; };
 		D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */; };
 		D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */; };
 		D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E21CF36C8400650211 /* NSURLConversionTests.swift */; };
@@ -46,6 +50,10 @@
 		D42D3E801CF11F8F0070E789 /* LazyMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMapping.swift; sourceTree = "<group>"; };
 		D42D3E811CF11F8F0070E789 /* LazyMappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMappingError.swift; sourceTree = "<group>"; };
 		D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyObject+Array.swift"; sourceTree = "<group>"; };
+		D4418C791CF4C226001A9E94 /* NSDate+Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Formatters.swift"; sourceTree = "<group>"; };
+		D4418C7B1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Lazy.swift"; sourceTree = "<group>"; };
+		D4418C7D1CF4E449001A9E94 /* LazyDateFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyDateFormattable.swift; sourceTree = "<group>"; };
+		D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantiationTests.swift; sourceTree = "<group>"; };
 		D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+NSURL.swift"; sourceTree = "<group>"; };
 		D49964E21CF36C8400650211 /* NSURLConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLConversionTests.swift; sourceTree = "<group>"; };
@@ -81,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				D42D3E7A1CF11F8F0070E789 /* Conversions */,
+				D4418C781CF4C226001A9E94 /* Date Formatting */,
 				D42D3E7C1CF11F8F0070E789 /* Extensions */,
 				D42D3E7E1CF11F8F0070E789 /* LazyObject.swift */,
 				D42D3E7F1CF11F8F0070E789 /* LazyConvertible.swift */,
@@ -102,10 +111,20 @@
 		D42D3E7C1CF11F8F0070E789 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */,
 				D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */,
+				D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4418C781CF4C226001A9E94 /* Date Formatting */ = {
+			isa = PBXGroup;
+			children = (
+				D4418C7D1CF4E449001A9E94 /* LazyDateFormattable.swift */,
+				D4418C791CF4C226001A9E94 /* NSDate+Formatters.swift */,
+				D4418C7B1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift */,
+			);
+			path = "Date Formatting";
 			sourceTree = "<group>";
 		};
 		D4BCBAAF1CF0D21D0014D111 = {
@@ -130,14 +149,15 @@
 		D4BCBAD31CF0D2530014D111 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D4BCBAED1CF0D8EE0014D111 /* NSNumberConversionTests.swift */,
-				D49964E21CF36C8400650211 /* NSURLConversionTests.swift */,
+				D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */,
 				D4BCBAEF1CF0D9020014D111 /* ErrorTests.swift */,
 				D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */,
 				D4BCBAF11CF0E4810014D111 /* LazyValueTests.swift */,
+				D4BCBAED1CF0D8EE0014D111 /* NSNumberConversionTests.swift */,
+				D49964E21CF36C8400650211 /* NSURLConversionTests.swift */,
 				D4BCBAEB1CF0D8950014D111 /* NullValueTests.swift */,
-				D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */,
 				D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */,
+				D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -250,13 +270,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */,
+				D4418C7A1CF4C226001A9E94 /* NSDate+Formatters.swift in Sources */,
 				D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */,
 				D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */,
+				D4418C7E1CF4E449001A9E94 /* LazyDateFormattable.swift in Sources */,
 				D42D3E891CF123BF0070E789 /* LazyObject+Array.swift in Sources */,
 				D42D3E871CF11F8F0070E789 /* LazyMappingError.swift in Sources */,
 				D42D3E821CF11F8F0070E789 /* LazyConvertible+NSNumber.swift in Sources */,
 				D42D3E831CF11F8F0070E789 /* NSDictionary+Null.swift in Sources */,
 				D42D3E851CF11F8F0070E789 /* LazyConvertible.swift in Sources */,
+				D4418C7C1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +291,7 @@
 				D4BCBAEE1CF0D8EE0014D111 /* NSNumberConversionTests.swift in Sources */,
 				D4BCBAEC1CF0D8950014D111 /* NullValueTests.swift in Sources */,
 				D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */,
+				D4418C801CF4EE7E001A9E94 /* DateTests.swift in Sources */,
 				D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */,
 				D4BCBAF21CF0E4810014D111 /* LazyValueTests.swift in Sources */,
 				D40AD0AF1CF3B3CC0093B743 /* SetterTests.swift in Sources */,
