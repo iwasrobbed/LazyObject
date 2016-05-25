@@ -63,6 +63,28 @@ final class DateTests: XCTestCase {
         XCTAssertTrue(date.dateMatches())
     }
 
+    func testValidEpochs() {
+        class Object: LazyObject, EpochFormattable {
+            var dateString: NSDate? { return try? dateFor("date_string") }
+            var dateDouble: NSDate? { return try? dateFor("date_double") }
+        }
+
+        let object = Object(dictionary: ["date_string": "1461508962.424",
+                                         "date_double": 1461508962.424])
+
+        guard let dateDouble = object.dateDouble else {
+            XCTFail("NSDate couldn't convert double to epoch")
+            return
+        }
+        XCTAssertTrue(dateDouble.dateMatches(millisecond: 424))
+
+        guard let dateString = object.dateString else {
+            XCTFail("Likely failed to convert string to double.")
+            return
+        }
+        XCTAssertTrue(dateString.dateMatches(millisecond: 424))
+    }
+
 }
 
 // MARK: - NSDate Helpers

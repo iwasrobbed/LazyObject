@@ -44,6 +44,21 @@ extension RFC850Formattable {
     }
 }
 
+// MARK: - Epoch (Unix)
+
+public protocol EpochFormattable: LazyDateFormattable {}
+extension EpochFormattable {
+    public func convertToDate(epoch: Double) throws -> NSDate {
+        return NSDate(timeIntervalSince1970: epoch)
+    }
+    public func convertToDate(dateString: String) throws -> NSDate {
+        guard let epoch = Double(dateString) else {
+            throw LazyMappingError.DateConversionError(message: "Could not convert '\(dateString)' into a Double")
+        }
+        return try convertToDate(epoch)
+    }
+}
+
 // MARK: - Date Formattable Protocol
 
 public protocol LazyDateFormattable {
@@ -57,6 +72,9 @@ public protocol LazyDateFormattable {
     @warn_unused_result
     func convertToDate(dateString: String) throws -> NSDate
 
+    @warn_unused_result
+    func convertToDate(epoch: Double) throws -> NSDate
+
 }
 
 // MARK: - Default Implementation 
@@ -66,6 +84,11 @@ public extension LazyDateFormattable {
     @warn_unused_result
     public func convertToDate(dateString: String) throws -> NSDate {
         fatalError("Must use one of the specialized LazyDateFormattable protocols (e.g. ISO8601Formattable)")
+    }
+
+    @warn_unused_result
+    public func convertToDate(epoch: Double) throws -> NSDate {
+        fatalError("Must use the specialized EpochFormattable protocol")
     }
 
 }

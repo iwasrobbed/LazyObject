@@ -126,8 +126,11 @@ public extension LazyMapping where Self: LazyDateFormattable {
 
     @warn_unused_result
     public func dateFor(keyPath: String) throws -> NSDate {
-        let dateString: String = try objectFor(keyPath)
-        return try convertToDate(dateString)
+        let dateValue: AnyObject = try objectFor(keyPath)
+        if dateValue is Double {
+            return try convertToDate(dateValue as! Double)
+        }
+        return try convertToDate(dateValue as! String)
     }
 
 }

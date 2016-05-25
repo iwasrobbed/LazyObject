@@ -42,7 +42,7 @@ extension NSDate {
 
     private struct LazyFormatterCache {
 
-        // Note: EPOCH (Unix) timestamps are handled directly in convertibles, not as a formatter
+        // Note: Epoch (Unix) timestamps are handled directly in convertibles, not as a formatter
 
         static let iso8601: NSDateFormatter = {
             return NSDateFormatter.Lazy.formatterFrom("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
