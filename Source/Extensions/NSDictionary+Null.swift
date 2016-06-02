@@ -15,7 +15,7 @@ extension NSDictionary {
 
      - returns: A pruned dictionary
      */
-    func pruneNullValues() -> NSDictionary {
+    public func pruneNullValues() -> NSDictionary {
         let nonNullDictionary = self.mutableCopy() as! NSMutableDictionary
         let keysForNullValues = nonNullDictionary.allKeysForObject(NSNull())
         let keysForNullStringValues = nonNullDictionary.allKeysForObject("<null>")

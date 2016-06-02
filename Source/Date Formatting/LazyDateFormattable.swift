@@ -13,7 +13,7 @@ import Foundation
 public protocol ISO8601Formattable: LazyDateFormattable {}
 extension ISO8601Formattable {
     public func convertToDate(dateString: String) throws -> NSDate {
-        return try convertToDate(dateString, formatter: NSDate.LazyFormatter.iso8601)
+        return try convertToDate(dateString, formatter: NSDateFormatter.Lazy.iso8601)
     }
 }
 
@@ -22,7 +22,7 @@ extension ISO8601Formattable {
 public protocol RFC3339Formattable: LazyDateFormattable {}
 extension RFC3339Formattable {
     public func convertToDate(dateString: String) throws -> NSDate {
-        return try convertToDate(dateString, formatter: NSDate.LazyFormatter.rfc3339)
+        return try convertToDate(dateString, formatter: NSDateFormatter.Lazy.rfc3339)
     }
 }
 
@@ -31,7 +31,7 @@ extension RFC3339Formattable {
 public protocol RFC1123Formattable: LazyDateFormattable {}
 extension RFC1123Formattable {
     public func convertToDate(dateString: String) throws -> NSDate {
-        return try convertToDate(dateString, formatter: NSDate.LazyFormatter.rfc1123)
+        return try convertToDate(dateString, formatter: NSDateFormatter.Lazy.rfc1123)
     }
 }
 
@@ -40,7 +40,7 @@ extension RFC1123Formattable {
 public protocol RFC850Formattable: LazyDateFormattable {}
 extension RFC850Formattable {
     public func convertToDate(dateString: String) throws -> NSDate {
-        return try convertToDate(dateString, formatter: NSDate.LazyFormatter.rfc850)
+        return try convertToDate(dateString, formatter: NSDateFormatter.Lazy.rfc850)
     }
 }
 
@@ -151,7 +151,7 @@ public extension LazyDateFormattable {
 
 private extension LazyDateFormattable {
 
-    func convertToDate(dateString: String, formatter: NSDate.LazyFormatter) throws -> NSDate {
+    func convertToDate(dateString: String, formatter: NSDateFormatter.Lazy) throws -> NSDate {
         let dateFormatter = formatter.toFormatter()
         guard let date = dateFormatter.dateFromString(dateString) else {
             throw LazyMappingError.DateConversionError(message: "Date string ('\(dateString)') could not be formatted using format specification \(formatter.toString())")
