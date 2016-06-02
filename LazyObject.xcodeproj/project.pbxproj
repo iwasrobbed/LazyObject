@@ -15,7 +15,6 @@
 		D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E801CF11F8F0070E789 /* LazyMapping.swift */; };
 		D42D3E871CF11F8F0070E789 /* LazyMappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E811CF11F8F0070E789 /* LazyMappingError.swift */; };
 		D42D3E891CF123BF0070E789 /* LazyObject+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */; };
-		D4418C7A1CF4C226001A9E94 /* NSDate+Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C791CF4C226001A9E94 /* NSDate+Formatters.swift */; };
 		D4418C7C1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7B1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift */; };
 		D4418C7E1CF4E449001A9E94 /* LazyDateFormattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7D1CF4E449001A9E94 /* LazyDateFormattable.swift */; };
 		D4418C801CF4EE7E001A9E94 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */; };
@@ -51,7 +50,6 @@
 		D42D3E801CF11F8F0070E789 /* LazyMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMapping.swift; sourceTree = "<group>"; };
 		D42D3E811CF11F8F0070E789 /* LazyMappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMappingError.swift; sourceTree = "<group>"; };
 		D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyObject+Array.swift"; sourceTree = "<group>"; };
-		D4418C791CF4C226001A9E94 /* NSDate+Formatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Formatters.swift"; sourceTree = "<group>"; };
 		D4418C7B1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDateFormatter+Lazy.swift"; sourceTree = "<group>"; };
 		D4418C7D1CF4E449001A9E94 /* LazyDateFormattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyDateFormattable.swift; sourceTree = "<group>"; };
 		D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				D4418C7D1CF4E449001A9E94 /* LazyDateFormattable.swift */,
-				D4418C791CF4C226001A9E94 /* NSDate+Formatters.swift */,
 				D4418C7B1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift */,
 			);
 			path = "Date Formatting";
@@ -273,7 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */,
-				D4418C7A1CF4C226001A9E94 /* NSDate+Formatters.swift in Sources */,
 				D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */,
 				D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */,
 				D4418C7E1CF4E449001A9E94 /* LazyDateFormattable.swift in Sources */,
