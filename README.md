@@ -17,6 +17,14 @@ Quickly install using [CocoaPods](https://cocoapods.org):
 pod 'LazyObject'
 ```
 
+Or manually install:
+
+1. Clone this repository
+2. Build the LazyObject project
+3. Add the resulting framework file to your project
+4. ?
+5. Profit
+
 ### API
 
 Let's look at an example model to show off some of the functionality:
