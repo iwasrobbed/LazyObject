@@ -18,6 +18,6 @@ public protocol LazyConvertible {
 
      - returns: An instance of the converted type
      */
-    @warn_unused_result
-    static func convert(value: AnyObject?) throws -> ConvertedType
+    
+    static func convert(_ value: Any?) throws -> ConvertedType
 }

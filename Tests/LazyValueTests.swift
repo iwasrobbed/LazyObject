@@ -20,14 +20,14 @@ final class LazyValueTests: XCTestCase {
     static let otherObjects = [["name": "Bill"], ["name": "Jane"]]
     let object = Object(dictionary: ["other_objects": otherObjects])
 
-    func testOriginalValuesAreAnyObject() {
-        let value = object.dictionary.valueForKey("other_objects")
-        XCTAssertTrue(value is [AnyObject])
+    func testOriginalValuesAreAny() {
+        let value = object.dictionary.value(forKey: "other_objects")
+        XCTAssertTrue(value is [Any])
     }
 
     func testCachedValuesAreTypedObject() {
         let _ = object.otherObjects
-        let value = object.dictionary.valueForKey("other_objects")
+        let value = object.dictionary.value(forKey: "other_objects")
         XCTAssertTrue(value is [OtherObject])
     }
 

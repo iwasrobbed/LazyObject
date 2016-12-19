@@ -8,15 +8,15 @@
 
 import Foundation
 
-extension NSURL: LazyConvertible {
+extension URL: LazyConvertible {
 
-    public static func convert(value: AnyObject?) throws -> NSURL {
+    public static func convert(_ value: Any?) throws -> URL {
         guard let string = value as? String else {
-            throw LazyMappingError.UnexpectedTypeError(value: value, type: String.self)
+            throw LazyMappingError.unexpectedTypeError(value: value, type: String.self)
         }
 
-        guard let url = NSURL(string: string) else {
-            throw LazyMappingError.CustomError(message: "'\(string)' is not a valid input for NSURL instantiation")
+        guard let url = URL(string: string) else {
+            throw LazyMappingError.customError(message: "'\(string)' is not a valid input for NSURL instantiation")
         }
 
         return url

@@ -12,19 +12,19 @@ import XCTest
 final class NSURLConversionTests: XCTestCase {
 
     class Object: LazyObject {
-        var url: NSURL   { return try! objectFor("url") }
+        var url: URL   { return try! objectFor("url") }
     }
     static let absoluteString = "http://i.giphy.com/3o7qE8co3YAzNUoAW4.gif"
     let object = Object(dictionary: ["url": absoluteString])
 
     func testOriginalValueIsString() {
-        let value = object.dictionary.valueForKey("url")
+        let value = object.dictionary.value(forKey: "url")
         XCTAssertTrue(value is String)
     }
 
     func testCachedValueIsSameURL() {
         let url = object.url
-        let value = object.dictionary.valueForKey("url")
+        let value = object.dictionary.value(forKey: "url")
         XCTAssertTrue(value is NSURL)
         XCTAssertTrue(url.absoluteString == NSURLConversionTests.absoluteString)
     }
@@ -32,9 +32,9 @@ final class NSURLConversionTests: XCTestCase {
     func testErrorThrownForUnexpectedOriginalValue() {
         let badObject = Object(dictionary: ["url": 42])
         do {
-            let _: NSURL = try badObject.objectFor("url")
+            let _: URL = try badObject.objectFor("url")
             XCTFail()
-        } catch LazyMappingError.UnexpectedTypeError {
+        } catch LazyMappingError.unexpectedTypeError {
             // Catching = great success
         } catch let e {
             XCTFail("Test failed for an unexpected reason: \(e)")
@@ -44,9 +44,9 @@ final class NSURLConversionTests: XCTestCase {
     func testErrorThrownForMalformedURL() {
         let badObject = Object(dictionary: ["url": "blerp this is not a url"])
         do {
-            let _: NSURL = try badObject.objectFor("url")
+            let _: URL = try badObject.objectFor("url")
             XCTFail()
-        } catch LazyMappingError.CustomError {
+        } catch LazyMappingError.customError {
             // Catching = great success
         } catch let e {
             XCTFail("Test failed for an unexpected reason: \(e)")

@@ -8,29 +8,29 @@
 
 import Foundation
 
-public enum LazyMappingError: ErrorType {
+public enum LazyMappingError: Error {
     /**
       Thrown when a value is not found for the given key path
      */
-    case KeyPathValueNotFoundError(keyPath: String)
+    case keyPathValueNotFoundError(keyPath: String)
 
     /**
       Thrown when a value cannot be casted to the expected type
      */
-    case ConversionError(keyPath: String, value: AnyObject, type: Any.Type)
+    case conversionError(keyPath: String?, value: Any, type: Any.Type)
 
     /**
       Thrown when a value to convert is not the type that was expected
      */
-    case UnexpectedTypeError(value: AnyObject?, type: Any.Type)
+    case unexpectedTypeError(value: Any?, type: Any.Type)
 
     /**
       Thrown when a date string could not be properly transformed into an `NSDate`
      */
-    case DateConversionError(message: String)
+    case dateConversionError(message: String)
 
     /**
       Typically thrown during conversions/transformations
      */
-    case CustomError(message: String)
+    case customError(message: String)
 }
