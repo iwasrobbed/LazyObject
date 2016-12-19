@@ -17,13 +17,13 @@ final class NSNumberConversionTests: XCTestCase {
     let object = Object(dictionary: ["number": "42"])
 
     func testOriginalValueIsString() {
-        let value = object.dictionary.valueForKey("number")
+        let value = object.dictionary.value(forKey: "number")
         XCTAssertTrue(value is String)
     }
 
     func testCachedValueIsNumber() {
         let _ = object.number
-        let value = object.dictionary.valueForKey("number")
+        let value = object.dictionary.value(forKey: "number")
         XCTAssertTrue(value is NSNumber)
     }
 

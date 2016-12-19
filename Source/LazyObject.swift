@@ -10,14 +10,14 @@ import Foundation
 
 // MARK: - Public API
 
-public class LazyObject: LazyMapping {
+open class LazyObject: LazyMapping {
 
     // MARK: - Properties
 
     /**
-      The underlying dictionary, often containing a mixture of JSON (pre-transformations) and objects (`AnyObject`)
+      The underlying dictionary, often containing a mixture of JSON (pre-transformations) and objects (`Any`)
      */
-    public var dictionary: NSMutableDictionary
+    open var dictionary: NSMutableDictionary
 
     // MARK: - Instantiation
 

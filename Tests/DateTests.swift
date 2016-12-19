@@ -15,7 +15,7 @@ final class DateTests: XCTestCase {
 
     func testValidISO8601() {
         class Object: LazyObject, ISO8601Formattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date": "2016-04-24T14:42:42.424Z"])
@@ -28,7 +28,7 @@ final class DateTests: XCTestCase {
 
     func testValidRFC3339() {
         class Object: LazyObject, RFC3339Formattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date": "2016-04-24T14:42:42Z"])
@@ -41,7 +41,7 @@ final class DateTests: XCTestCase {
 
     func testValidRFC1123() {
         class Object: LazyObject, RFC1123Formattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date": "Sun, 24 Apr 2016 14:42:42 +0000"])
@@ -54,7 +54,7 @@ final class DateTests: XCTestCase {
 
     func testValidRFC850() {
         class Object: LazyObject, RFC850Formattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date": "Sunday, 24-Apr-16 14:42:42 UTC"])
@@ -67,9 +67,9 @@ final class DateTests: XCTestCase {
 
     func testValidEpochs() {
         class Object: LazyObject, EpochFormattable {
-            var dateString: NSDate? { return try? dateFor("date_string") }
-            var dateDouble: NSDate? { return try? dateFor("date_double") }
-            var getter: NSDate?     { return try? dateFor(#function) }
+            var dateString: Date? { return try? dateFor("date_string") }
+            var dateDouble: Date? { return try? dateFor("date_double") }
+            var getter: Date?     { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date_string": "1461508962.424",
@@ -103,7 +103,7 @@ extension DateTests {
 
     func testProperProtocolConformance() {
         class Object: LazyObject, LazyDateFormattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date": "Sunday, 24-Apr-16 14:42:42 UTC"])
@@ -115,7 +115,7 @@ extension DateTests {
 
     func testProperEpochProtocolConformance() {
         class Object: LazyObject, LazyDateFormattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         let object = Object(dictionary: ["date": 1461508962.424])
@@ -137,7 +137,7 @@ extension DateTests {
 
     func testBadDateFormatForAnyFormatter() {
         class Object: LazyObject, ISO8601Formattable {
-            var date: NSDate?   { return try? dateFor(#function) }
+            var date: Date?   { return try? dateFor(#function) }
         }
 
         // Pass in an epoch time to something expecting ISO 8601 format
@@ -152,9 +152,9 @@ extension DateTests {
 
 // MARK: - NSDate Helpers
 
-private extension NSDate {
+private extension Date {
 
-    func dateMatches(year: Int = 2016, month: Int = 4, day: Int = 24, hour: Int = 14, minute: Int = 42, second: Int = 42, millisecond: Int? = nil) -> Bool {
+    func dateMatches(_ year: Int = 2016, month: Int = 4, day: Int = 24, hour: Int = 14, minute: Int = 42, second: Int = 42, millisecond: Int? = nil) -> Bool {
         guard dateYearMatches(year) else {
             XCTFail("Year component does not match")
             return false
@@ -189,46 +189,46 @@ private extension NSDate {
         return true
     }
 
-    func dateYearMatches(year: Int) -> Bool {
-        let component = dateComponentFor(self, component: .Year)
+    func dateYearMatches(_ year: Int) -> Bool {
+        let component = dateComponentFor(self, component: .year)
         return component.year == year
     }
 
-    func dateMonthMatches(month: Int) -> Bool {
-        let component = dateComponentFor(self, component: .Month)
+    func dateMonthMatches(_ month: Int) -> Bool {
+        let component = dateComponentFor(self, component: .month)
         return component.month == month
     }
 
-    func dateDayMatches(day: Int) -> Bool {
-        let component = dateComponentFor(self, component: .Day)
+    func dateDayMatches(_ day: Int) -> Bool {
+        let component = dateComponentFor(self, component: .day)
         return component.day == day
     }
 
-    func dateHourMatches(hour: Int) -> Bool {
-        let component = dateComponentFor(self, component: .Hour)
+    func dateHourMatches(_ hour: Int) -> Bool {
+        let component = dateComponentFor(self, component: .hour)
         return component.hour == hour
     }
 
-    func dateMinuteMatches(minute: Int) -> Bool {
-        let component = dateComponentFor(self, component: .Minute)
+    func dateMinuteMatches(_ minute: Int) -> Bool {
+        let component = dateComponentFor(self, component: .minute)
         return component.minute == minute
     }
 
-    func dateSecondMatches(second: Int) -> Bool {
-        let component = dateComponentFor(self, component: .Second)
+    func dateSecondMatches(_ second: Int) -> Bool {
+        let component = dateComponentFor(self, component: .second)
         return component.second == second
     }
 
-    func dateMillisecondMatches(millisecond: Int) -> Bool {
+    func dateMillisecondMatches(_ millisecond: Int) -> Bool {
         // Only compare the last 3 digits
-        let milliseconds = Int((self.timeIntervalSince1970 * 1000) % 1000)
+        let milliseconds = Int((self.timeIntervalSince1970 * 1000).truncatingRemainder(dividingBy: 1000))
         return milliseconds == millisecond
     }
 
-    func dateComponentFor(date: NSDate, component: NSCalendarUnit) -> NSDateComponents {
-        let utcCalendar = NSCalendar.currentCalendar()
-        utcCalendar.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        return utcCalendar.components(component, fromDate: date)
+    func dateComponentFor(_ date: Date, component: NSCalendar.Unit) -> DateComponents {
+        var utcCalendar = Calendar.current
+        utcCalendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        return (utcCalendar as NSCalendar).components(component, from: date)
     }
 
 }
