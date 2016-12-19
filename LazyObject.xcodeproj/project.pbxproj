@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D40AD0AF1CF3B3CC0093B743 /* SetterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */; };
 		D42D3E821CF11F8F0070E789 /* LazyConvertible+NSNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */; };
-		D42D3E831CF11F8F0070E789 /* NSDictionary+Null.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */; };
+		D42D3E831CF11F8F0070E789 /* NSDictionary+Lazy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7D1CF11F8F0070E789 /* NSDictionary+Lazy.swift */; };
 		D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7E1CF11F8F0070E789 /* LazyObject.swift */; };
 		D42D3E851CF11F8F0070E789 /* LazyConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E7F1CF11F8F0070E789 /* LazyConvertible.swift */; };
 		D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42D3E801CF11F8F0070E789 /* LazyMapping.swift */; };
@@ -22,6 +22,16 @@
 		D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */; };
 		D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */; };
 		D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E21CF36C8400650211 /* NSURLConversionTests.swift */; };
+		D4A0F2301E077B5F00536FD0 /* LazyConvertible+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F22F1E077B5F00536FD0 /* LazyConvertible+Int.swift */; };
+		D4A0F2321E077BE400536FD0 /* LazyConvertible+Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2311E077BE400536FD0 /* LazyConvertible+Float.swift */; };
+		D4A0F2341E077C7500536FD0 /* LazyConvertible+UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2331E077C7500536FD0 /* LazyConvertible+UInt.swift */; };
+		D4A0F2361E077CA300536FD0 /* LazyConvertible+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2351E077CA300536FD0 /* LazyConvertible+Double.swift */; };
+		D4A0F2381E077CCF00536FD0 /* LazyConvertible+Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2371E077CCF00536FD0 /* LazyConvertible+Bool.swift */; };
+		D4A0F23B1E07808500536FD0 /* IntConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2391E07802800536FD0 /* IntConversionTests.swift */; };
+		D4A0F23E1E0780A800536FD0 /* UIntConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F23C1E07809D00536FD0 /* UIntConversionTests.swift */; };
+		D4A0F2411E0780DC00536FD0 /* FloatConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F23F1E0780D200536FD0 /* FloatConversionTests.swift */; };
+		D4A0F2441E07816C00536FD0 /* DoubleConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2421E07815700536FD0 /* DoubleConversionTests.swift */; };
+		D4A0F2471E0781B700536FD0 /* BoolConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F2451E07818600536FD0 /* BoolConversionTests.swift */; };
 		D4BCBAC41CF0D21E0014D111 /* LazyObject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BCBAB91CF0D21D0014D111 /* LazyObject.framework */; };
 		D4BCBAD71CF0D2530014D111 /* ValueTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */; };
 		D4BCBAEC1CF0D8950014D111 /* NullValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BCBAEB1CF0D8950014D111 /* NullValueTests.swift */; };
@@ -44,7 +54,7 @@
 		D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetterTests.swift; sourceTree = "<group>"; };
 		D42D3E771CF11F730070E789 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+NSNumber.swift"; sourceTree = "<group>"; };
-		D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Null.swift"; sourceTree = "<group>"; };
+		D42D3E7D1CF11F8F0070E789 /* NSDictionary+Lazy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Lazy.swift"; sourceTree = "<group>"; };
 		D42D3E7E1CF11F8F0070E789 /* LazyObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyObject.swift; sourceTree = "<group>"; };
 		D42D3E7F1CF11F8F0070E789 /* LazyConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyConvertible.swift; sourceTree = "<group>"; };
 		D42D3E801CF11F8F0070E789 /* LazyMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LazyMapping.swift; sourceTree = "<group>"; };
@@ -57,6 +67,16 @@
 		D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantiationTests.swift; sourceTree = "<group>"; };
 		D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+NSURL.swift"; sourceTree = "<group>"; };
 		D49964E21CF36C8400650211 /* NSURLConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLConversionTests.swift; sourceTree = "<group>"; };
+		D4A0F22F1E077B5F00536FD0 /* LazyConvertible+Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+Int.swift"; sourceTree = "<group>"; };
+		D4A0F2311E077BE400536FD0 /* LazyConvertible+Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+Float.swift"; sourceTree = "<group>"; };
+		D4A0F2331E077C7500536FD0 /* LazyConvertible+UInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+UInt.swift"; sourceTree = "<group>"; };
+		D4A0F2351E077CA300536FD0 /* LazyConvertible+Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+Double.swift"; sourceTree = "<group>"; };
+		D4A0F2371E077CCF00536FD0 /* LazyConvertible+Bool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+Bool.swift"; sourceTree = "<group>"; };
+		D4A0F2391E07802800536FD0 /* IntConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntConversionTests.swift; sourceTree = "<group>"; };
+		D4A0F23C1E07809D00536FD0 /* UIntConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIntConversionTests.swift; sourceTree = "<group>"; };
+		D4A0F23F1E0780D200536FD0 /* FloatConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatConversionTests.swift; sourceTree = "<group>"; };
+		D4A0F2421E07815700536FD0 /* DoubleConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleConversionTests.swift; sourceTree = "<group>"; };
+		D4A0F2451E07818600536FD0 /* BoolConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolConversionTests.swift; sourceTree = "<group>"; };
 		D4BCBAB91CF0D21D0014D111 /* LazyObject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LazyObject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BCBAC31CF0D21E0014D111 /* LazyObjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LazyObjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BCBAD51CF0D2530014D111 /* ValueTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueTypeTests.swift; sourceTree = "<group>"; };
@@ -103,6 +123,11 @@
 			isa = PBXGroup;
 			children = (
 				D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */,
+				D4A0F2331E077C7500536FD0 /* LazyConvertible+UInt.swift */,
+				D4A0F22F1E077B5F00536FD0 /* LazyConvertible+Int.swift */,
+				D4A0F2311E077BE400536FD0 /* LazyConvertible+Float.swift */,
+				D4A0F2351E077CA300536FD0 /* LazyConvertible+Double.swift */,
+				D4A0F2371E077CCF00536FD0 /* LazyConvertible+Bool.swift */,
 				D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */,
 			);
 			path = Conversions;
@@ -112,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D42D3E881CF123BF0070E789 /* LazyObject+Array.swift */,
-				D42D3E7D1CF11F8F0070E789 /* NSDictionary+Null.swift */,
+				D42D3E7D1CF11F8F0070E789 /* NSDictionary+Lazy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -154,6 +179,11 @@
 				D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */,
 				D4BCBAF11CF0E4810014D111 /* LazyValueTests.swift */,
 				D4BCBAED1CF0D8EE0014D111 /* NSNumberConversionTests.swift */,
+				D4A0F23C1E07809D00536FD0 /* UIntConversionTests.swift */,
+				D4A0F2391E07802800536FD0 /* IntConversionTests.swift */,
+				D4A0F23F1E0780D200536FD0 /* FloatConversionTests.swift */,
+				D4A0F2421E07815700536FD0 /* DoubleConversionTests.swift */,
+				D4A0F2451E07818600536FD0 /* BoolConversionTests.swift */,
 				D49964E21CF36C8400650211 /* NSURLConversionTests.swift */,
 				D4BCBAEB1CF0D8950014D111 /* NullValueTests.swift */,
 				D40AD0AD1CF3B3C70093B743 /* SetterTests.swift */,
@@ -218,14 +248,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Glazed Donut, LLC.";
 				TargetAttributes = {
 					D4BCBAB81CF0D21D0014D111 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 					D4BCBAC21CF0D21E0014D111 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -269,16 +301,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A0F2321E077BE400536FD0 /* LazyConvertible+Float.swift in Sources */,
 				D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */,
 				D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */,
 				D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */,
+				D4A0F2361E077CA300536FD0 /* LazyConvertible+Double.swift in Sources */,
 				D4418C7E1CF4E449001A9E94 /* LazyDateFormattable.swift in Sources */,
 				D42D3E891CF123BF0070E789 /* LazyObject+Array.swift in Sources */,
 				D42D3E871CF11F8F0070E789 /* LazyMappingError.swift in Sources */,
 				D42D3E821CF11F8F0070E789 /* LazyConvertible+NSNumber.swift in Sources */,
-				D42D3E831CF11F8F0070E789 /* NSDictionary+Null.swift in Sources */,
+				D4A0F2341E077C7500536FD0 /* LazyConvertible+UInt.swift in Sources */,
+				D42D3E831CF11F8F0070E789 /* NSDictionary+Lazy.swift in Sources */,
+				D4A0F2301E077B5F00536FD0 /* LazyConvertible+Int.swift in Sources */,
 				D42D3E851CF11F8F0070E789 /* LazyConvertible.swift in Sources */,
 				D4418C7C1CF4C534001A9E94 /* NSDateFormatter+Lazy.swift in Sources */,
+				D4A0F2381E077CCF00536FD0 /* LazyConvertible+Bool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,9 +329,14 @@
 				D4BCBAEC1CF0D8950014D111 /* NullValueTests.swift in Sources */,
 				D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */,
 				D4418C801CF4EE7E001A9E94 /* DateTests.swift in Sources */,
+				D4A0F2441E07816C00536FD0 /* DoubleConversionTests.swift in Sources */,
 				D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */,
 				D4BCBAF21CF0E4810014D111 /* LazyValueTests.swift in Sources */,
 				D40AD0AF1CF3B3CC0093B743 /* SetterTests.swift in Sources */,
+				D4A0F2411E0780DC00536FD0 /* FloatConversionTests.swift in Sources */,
+				D4A0F23E1E0780A800536FD0 /* UIntConversionTests.swift in Sources */,
+				D4A0F2471E0781B700536FD0 /* BoolConversionTests.swift in Sources */,
+				D4A0F23B1E07808500536FD0 /* IntConversionTests.swift in Sources */,
 				D4BCBAD71CF0D2530014D111 /* ValueTypeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,8 +366,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -373,8 +417,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -394,6 +440,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -404,6 +451,7 @@
 		D4BCBACE1CF0D21E0014D111 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -414,12 +462,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.glazeddonut.LazyObject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		D4BCBACF1CF0D21E0014D111 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -430,6 +480,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.glazeddonut.LazyObject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -439,6 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.glazeddonut.LazyObjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -448,6 +500,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.glazeddonut.LazyObjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

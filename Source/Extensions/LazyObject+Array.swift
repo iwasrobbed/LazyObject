@@ -18,7 +18,7 @@ extension LazyObject {
 
      - returns: An array of objects with lazily transformed properties from the underlying dictionaries
      */
-    public class func fromArray(array: [NSDictionary], pruneNullValues: Bool = true) -> [LazyObject]? {
+    public class func fromArray(_ array: [NSDictionary], pruneNullValues: Bool = true) -> [LazyObject]? {
         return array.map { self.init(dictionary: $0, pruneNullValues: pruneNullValues) }
     }
 

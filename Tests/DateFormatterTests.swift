@@ -14,10 +14,10 @@ import XCTest
 final class DateFormatterTests: XCTestCase {
 
     func testFormatterToString() {
-        XCTAssertTrue(NSDateFormatter.Lazy.iso8601.toString() == "ISO 8601")
-        XCTAssertTrue(NSDateFormatter.Lazy.rfc3339.toString() == "RFC 3339")
-        XCTAssertTrue(NSDateFormatter.Lazy.rfc1123.toString() == "RFC 1123")
-        XCTAssertTrue(NSDateFormatter.Lazy.rfc850.toString() == "RFC 850")
+        XCTAssertTrue(DateFormatter.Lazy.iso8601.toString() == "ISO 8601")
+        XCTAssertTrue(DateFormatter.Lazy.rfc3339.toString() == "RFC 3339")
+        XCTAssertTrue(DateFormatter.Lazy.rfc1123.toString() == "RFC 1123")
+        XCTAssertTrue(DateFormatter.Lazy.rfc850.toString() == "RFC 850")
     }
 
 }

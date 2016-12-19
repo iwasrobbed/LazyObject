@@ -15,7 +15,7 @@ public protocol LazyMapping {
     // MARK: - Properties
 
     /**
-     The underlying dictionary, often containing a mixture of JSON (pre-transformations) and objects (`AnyObject`)
+     The underlying dictionary, often containing a mixture of JSON (pre-transformations) and objects (`Any`)
      */
     var dictionary: NSMutableDictionary { get set }
 
@@ -29,7 +29,7 @@ public protocol LazyMapping {
 
      - returns: An object with lazily transformed properties from the underlying dictionary
      */
-    @warn_unused_result
+    
     init(dictionary: NSDictionary, pruneNullValues: Bool)
 }
 
@@ -50,8 +50,8 @@ public extension LazyMapping {
 
      - returns: A typed object
      */
-    @warn_unused_result
-    public func objectFor<T>(getter: Selector) throws -> T {
+    
+    public func objectFor<T>(_ getter: Selector) throws -> T {
         return try objectFor(NSStringFromSelector(getter))
     }
 
@@ -64,8 +64,8 @@ public extension LazyMapping {
 
      - returns: A typed object; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
      */
-    @warn_unused_result
-    public func objectFor<T>(keyPath: String) throws -> T {
+    
+    public func objectFor<T>(_ keyPath: String) throws -> T {
         return try objectForJSONType(keyPath)
     }
 
@@ -78,8 +78,8 @@ public extension LazyMapping {
 
      - returns: A typed object; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
      */
-    @warn_unused_result
-    public func objectFor<T: LazyMapping>(getter: Selector) throws -> [T] {
+    
+    public func objectFor<T: LazyMapping>(_ getter: Selector) throws -> [T] {
         return try objectFor(NSStringFromSelector(getter))
     }
 
@@ -92,8 +92,8 @@ public extension LazyMapping {
 
      - returns: A typed object; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
      */
-    @warn_unused_result
-    public func objectFor<T: LazyMapping>(keyPath: String) throws -> [T] {
+    
+    public func objectFor<T: LazyMapping>(_ keyPath: String) throws -> [T] {
         return try arrayForJSONType(keyPath)
     }
 
@@ -108,8 +108,8 @@ public extension LazyMapping {
 
      - returns: A typed object, converted using a `LazyConvertible` method; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
      */
-    @warn_unused_result
-    public func objectFor<T: LazyConvertible where T == T.ConvertedType>(keyPath: String) throws -> T {
+    
+    public func objectFor<T: LazyConvertible>(_ keyPath: String) throws -> T where T == T.ConvertedType {
         return try objectFor(keyPath, convertWith: T.convert)
     }
 
@@ -128,8 +128,8 @@ public extension LazyMapping where Self: LazyDateFormattable {
 
      - returns: An `NSDate` object, converted using a `LazyDateFormattable` protocol; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
      */
-    @warn_unused_result
-    public func dateFor(getter: Selector) throws -> NSDate {
+    
+    public func dateFor(_ getter: Selector) throws -> Date {
         return try dateFor(NSStringFromSelector(getter))
     }
 
@@ -142,9 +142,9 @@ public extension LazyMapping where Self: LazyDateFormattable {
 
      - returns: An `NSDate` object, converted using a `LazyDateFormattable` protocol; using `try!` will force it whereas `try?` will safely return `nil` if it failed.
      */
-    @warn_unused_result
-    public func dateFor(keyPath: String) throws -> NSDate {
-        let dateValue: AnyObject = try objectFor(keyPath)
+    
+    public func dateFor(_ keyPath: String) throws -> Date {
+        let dateValue: Any = try objectFor(keyPath)
         if dateValue is Double {
             return try convertToDate(dateValue as! Double)
         }
@@ -162,7 +162,7 @@ public extension LazyMapping {
 
      - parameter setter: The `#function` to set (e.g. for a property named `name`, specifying #function will convert it to a string of `name`)
      */
-    public func setObject(object: AnyObject?, setter: Selector) {
+    public func setObject(_ object: Any?, setter: Selector) {
         setObject(object, keyPath: NSStringFromSelector(setter))
     }
 
@@ -171,11 +171,11 @@ public extension LazyMapping {
 
      - parameter keyPath: The key / key path to set the value for
      */
-    public func setObject(object: AnyObject?, keyPath: String) {
+    public func setObject(_ object: Any?, keyPath: String) {
         if let object = object {
-            dictionary.setObject(object, forKey: keyPath)
+            dictionary.setObject(object, forKey: keyPath as NSCopying)
         } else {
-            dictionary.removeObjectForKey(keyPath)
+            dictionary.removeObject(forKey: keyPath)
         }
     }
 
@@ -187,54 +187,54 @@ private extension LazyMapping {
 
     // MARK: - Generic JSON Types
 
-    func objectForJSONType<T>(keyPath: String) throws -> T {
+    func objectForJSONType<T>(_ keyPath: String) throws -> T {
         let value = try valueForKeyPath(keyPath)
-
+        
         // Check if a value for the given type is already stored
         if value is T { return value as! T }
-
+        
         // Otherwise, try to convert it to the given type
         guard let typedValue = value as? T else {
-            throw LazyMappingError.ConversionError(keyPath: keyPath, value: value, type: T.self)
+            throw LazyMappingError.conversionError(keyPath: keyPath, value: value, type: T.self)
         }
 
-        dictionary.setValue(typedValue as? AnyObject, forKeyPath: keyPath)
+        dictionary.setValue(typedValue, forKeyPath: keyPath)
         return typedValue
     }
 
-    func arrayForJSONType<T: LazyMapping>(keyPath: String) throws -> [T] {
+    func arrayForJSONType<T: LazyMapping>(_ keyPath: String) throws -> [T] {
         let value = try valueForKeyPath(keyPath)
         guard let array = value as? [NSDictionary] else {
-            throw LazyMappingError.ConversionError(keyPath: keyPath, value: value, type: [NSDictionary].self)
+            throw LazyMappingError.conversionError(keyPath: keyPath, value: value, type: [NSDictionary].self)
         }
 
         let mappedArray = array.map { T(dictionary: $0, pruneNullValues: true) }
 
-        dictionary.setValue(mappedArray as? AnyObject, forKeyPath: keyPath)
+        dictionary.setValue(mappedArray, forKeyPath: keyPath)
         return mappedArray
     }
 
     // MARK: - Transformations
 
-    func objectFor<T>(keyPath: String, convertWith convert: AnyObject? throws -> T) throws -> T {
+    func objectFor<T>(_ keyPath: String, convertWith convert: (Any?) throws -> T) throws -> T {
         let value = try valueForKeyPath(keyPath)
 
         // Check if a value for the given type is already stored
         if value is T { return value as! T }
 
         let transformedValue = try convert(value)
-        dictionary.setValue(transformedValue as? AnyObject, forKeyPath: keyPath)
+        dictionary.setValue(transformedValue, forKeyPath: keyPath)
         return transformedValue
     }
 
     // MARK: - Dictionary Values
 
-    func valueForKeyPath(keyPath: String) throws -> AnyObject {
-        guard let value = dictionary.valueForKeyPath(keyPath) else {
-            throw LazyMappingError.KeyPathValueNotFoundError(keyPath: keyPath)
+    func valueForKeyPath(_ keyPath: String) throws -> Any {
+        guard let value = dictionary.lazyValue(forKeyPath: keyPath) else {
+            throw LazyMappingError.keyPathValueNotFoundError(keyPath: keyPath)
         }
         
-        return value
+        return value as Any
     }
     
 }

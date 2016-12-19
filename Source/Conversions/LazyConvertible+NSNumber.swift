@@ -10,14 +10,14 @@ import Foundation
 
 extension NSNumber: LazyConvertible {
 
-    public static func convert(value: AnyObject?) throws -> NSNumber {
+    public static func convert(_ value: Any?) throws -> NSNumber {
         guard let string = value as? String else {
-            throw LazyMappingError.UnexpectedTypeError(value: value, type: String.self)
+            throw LazyMappingError.unexpectedTypeError(value: value, type: String.self)
         }
 
-        let formatter = NSNumberFormatter()
-        guard let number = formatter.numberFromString(string) else {
-            throw LazyMappingError.CustomError(message: "'\(string)' is not a valid input for NSNumber instantiation")
+        let formatter = NumberFormatter()
+        guard let number = formatter.number(from: string) else {
+            throw LazyMappingError.customError(message: "'\(string)' is not a valid input for NSNumber instantiation")
         }
 
         return number

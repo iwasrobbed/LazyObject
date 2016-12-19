@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
   spec.name         = "LazyObject"
   spec.summary      = "Lazy JSON deserialization in Swift"
-  spec.version      = "0.2.2"
+  spec.version      = "0.3"
   spec.homepage     = "https://github.com/iwasrobbed/LazyObject"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.authors      = { "Rob Phillips" => "rob@desideratalabs.co" }
