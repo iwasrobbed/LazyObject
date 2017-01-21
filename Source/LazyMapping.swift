@@ -204,6 +204,11 @@ private extension LazyMapping {
 
     func arrayForJSONType<T: LazyMapping>(_ keyPath: String) throws -> [T] {
         let value = try valueForKeyPath(keyPath)
+        
+        // Check if a value for the given type is already stored
+        if value is [T] { return value as! [T] }
+        
+        // Otherwise, try to convert it to the given type
         guard let array = value as? [NSDictionary] else {
             throw LazyMappingError.conversionError(keyPath: keyPath, value: value, type: [NSDictionary].self)
         }
@@ -222,6 +227,7 @@ private extension LazyMapping {
         // Check if a value for the given type is already stored
         if value is T { return value as! T }
 
+        // Otherwise, try to convert it to the given type
         let transformedValue = try convert(value)
         dictionary.setValue(transformedValue, forKeyPath: keyPath)
         return transformedValue

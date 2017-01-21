@@ -92,6 +92,27 @@ final class ValueTypeTests: XCTestCase {
 
         let arrayObject = ArrayObject(dictionary: ["answers": [42, 42, 42]])
         XCTAssertTrue(arrayObject.answers == [42, 42, 42])
+        
+        // Need to also test that fetching it a second time 
+        // will use the cached value instead of converting from dictionary
+        arrayObject.answers.forEach { XCTAssertTrue($0 == 42) }
+    }
+    
+    func testArrayOfLazyObjectValues() {
+        class ArrayParentObject: LazyObject {
+            var items: [ItemObject]  { return try! objectFor(#function) }
+        }
+        class ItemObject: LazyObject {
+            var number: Int { return try! objectFor(#function) }
+        }
+        
+        let itemObjectDictionaries = [["number": 42], ["number": 24]]
+        let arrayParentObject = ArrayParentObject(dictionary: ["items": itemObjectDictionaries])
+        XCTAssertTrue(arrayParentObject.items.first?.number == 42)
+        
+        // Need to also test that fetching it a second time
+        // will use the cached value instead of converting from dictionary
+        XCTAssertTrue(arrayParentObject.items.last?.number == 24)
     }
 
     func testDictionaryValues() {
