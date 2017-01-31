@@ -11,11 +11,13 @@ import Foundation
 extension Bool: LazyConvertible {
     
     public static func convert(_ value: Any?) throws -> Bool {
-        guard let number = value as? NSNumber else {
-            throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
+        if let number = value as? NSNumber {
+            return number.boolValue
+        } else if let boolString = value as? String, let bool = Bool(boolString) {
+            return bool
         }
         
-        return number.boolValue
+        throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
     }
     
 }

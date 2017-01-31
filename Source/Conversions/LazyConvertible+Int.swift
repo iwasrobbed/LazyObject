@@ -11,11 +11,13 @@ import Foundation
 extension Int: LazyConvertible {
     
     public static func convert(_ value: Any?) throws -> Int {
-        guard let number = value as? NSNumber else {
-            throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
+        if let number = value as? NSNumber {
+            return number.intValue
+        } else if let numberString = value as? String, let number = Int(numberString) {
+            return number
         }
         
-        return number.intValue
+        throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
     }
     
 }

@@ -11,11 +11,13 @@ import Foundation
 extension Double: LazyConvertible {
     
     public static func convert(_ value: Any?) throws -> Double {
-        guard let number = value as? NSNumber else {
-            throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
+        if let number = value as? NSNumber {
+            return number.doubleValue
+        } else if let numberString = value as? String, let number = Double(numberString) {
+            return number
         }
         
-        return number.doubleValue
+        throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
     }
     
 }
