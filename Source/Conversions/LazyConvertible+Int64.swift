@@ -11,11 +11,13 @@ import Foundation
 extension Int64: LazyConvertible {
     
     public static func convert(_ value: Any?) throws -> Int64 {
-        guard let number = value as? NSNumber else {
-            throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
+        if let number = value as? NSNumber {
+            return number.int64Value
+        } else if let numberString = value as? String, let bigInt = Int64(numberString) {
+            return bigInt
         }
         
-        return number.int64Value
+        throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
     }
     
 }

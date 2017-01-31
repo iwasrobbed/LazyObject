@@ -11,11 +11,13 @@ import Foundation
 extension Float: LazyConvertible {
     
     public static func convert(_ value: Any?) throws -> Float {
-        guard let number = value as? NSNumber else {
-            throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
+        if let number = value as? NSNumber {
+            return number.floatValue
+        } else if let numberString = value as? String, let number = Float(numberString) {
+            return number
         }
         
-        return number.floatValue
+        throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
     }
     
 }
