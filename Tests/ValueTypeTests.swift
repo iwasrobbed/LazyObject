@@ -57,6 +57,15 @@ final class ValueTypeTests: XCTestCase {
         let integerObject = IntegerObject(dictionary: ["answer_to_life": 42])
         XCTAssertTrue(integerObject.answerToLife == 42)
     }
+    
+    func testBigIntegerValues() {
+        class BigIntegerObject: LazyObject {
+            var answerToLife: Int64   { return try! objectFor("answer_to_life") }
+        }
+        
+        let integerObject = BigIntegerObject(dictionary: ["answer_to_life": 3115392428685656064])
+        XCTAssertTrue(integerObject.answerToLife == 3115392428685656064)
+    }
 
     func testFloatingPointValues() {
         class FloatingPointObject: LazyObject {

@@ -20,6 +20,7 @@
 		D4418C801CF4EE7E001A9E94 /* DateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */; };
 		D4418C821CF5E37F001A9E94 /* DateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4418C811CF5E37F001A9E94 /* DateFormatterTests.swift */; };
 		D45BFC3D1CF107BB00914459 /* InstantiationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */; };
+		D48730D61E4012E000A52C4B /* LazyConvertible+Int64.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48730D51E4012E000A52C4B /* LazyConvertible+Int64.swift */; };
 		D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */; };
 		D49964E31CF36C8400650211 /* NSURLConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49964E21CF36C8400650211 /* NSURLConversionTests.swift */; };
 		D4A0F2301E077B5F00536FD0 /* LazyConvertible+Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A0F22F1E077B5F00536FD0 /* LazyConvertible+Int.swift */; };
@@ -65,6 +66,7 @@
 		D4418C7F1CF4EE7E001A9E94 /* DateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateTests.swift; sourceTree = "<group>"; };
 		D4418C811CF5E37F001A9E94 /* DateFormatterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatterTests.swift; sourceTree = "<group>"; };
 		D45BFC3C1CF107BB00914459 /* InstantiationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantiationTests.swift; sourceTree = "<group>"; };
+		D48730D51E4012E000A52C4B /* LazyConvertible+Int64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+Int64.swift"; sourceTree = "<group>"; };
 		D49964E01CF36A5B00650211 /* LazyConvertible+NSURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+NSURL.swift"; sourceTree = "<group>"; };
 		D49964E21CF36C8400650211 /* NSURLConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLConversionTests.swift; sourceTree = "<group>"; };
 		D4A0F22F1E077B5F00536FD0 /* LazyConvertible+Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LazyConvertible+Int.swift"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				D42D3E7B1CF11F8F0070E789 /* LazyConvertible+NSNumber.swift */,
 				D4A0F2331E077C7500536FD0 /* LazyConvertible+UInt.swift */,
 				D4A0F22F1E077B5F00536FD0 /* LazyConvertible+Int.swift */,
+				D48730D51E4012E000A52C4B /* LazyConvertible+Int64.swift */,
 				D4A0F2311E077BE400536FD0 /* LazyConvertible+Float.swift */,
 				D4A0F2351E077CA300536FD0 /* LazyConvertible+Double.swift */,
 				D4A0F2371E077CCF00536FD0 /* LazyConvertible+Bool.swift */,
@@ -304,6 +307,7 @@
 				D4A0F2321E077BE400536FD0 /* LazyConvertible+Float.swift in Sources */,
 				D42D3E861CF11F8F0070E789 /* LazyMapping.swift in Sources */,
 				D42D3E841CF11F8F0070E789 /* LazyObject.swift in Sources */,
+				D48730D61E4012E000A52C4B /* LazyConvertible+Int64.swift in Sources */,
 				D49964E11CF36A5B00650211 /* LazyConvertible+NSURL.swift in Sources */,
 				D4A0F2361E077CA300536FD0 /* LazyConvertible+Double.swift in Sources */,
 				D4418C7E1CF4E449001A9E94 /* LazyDateFormattable.swift in Sources */,
