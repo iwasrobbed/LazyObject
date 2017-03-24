@@ -41,8 +41,9 @@ open class LazyObject: LazyMapping {
      
      - returns: An object with lazily transformed properties from the underlying dictionary
      */
-    public convenience init(dictionary: [AnyHashable: Any], pruneNullValues: Bool = true) {
-        self.init(dictionary: dictionary as NSDictionary)
+    public required init(dictionary: [AnyHashable: Any], pruneNullValues: Bool = true) {
+        let nsDictionary = dictionary as NSDictionary
+        self.dictionary = NSMutableDictionary(dictionary: pruneNullValues ? nsDictionary.pruneNullValues() : nsDictionary)
     }
     
 }
