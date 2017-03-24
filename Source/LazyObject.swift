@@ -22,7 +22,7 @@ open class LazyObject: LazyMapping {
     // MARK: - Instantiation
 
     /**
-     Instantiates the class with the given JSON dictionary
+     Instantiates the class with the given JSON (NS) dictionary
 
      - parameter dictionary:      JSON dictionary
      - parameter pruneNullValues: Whether or not to prune keys with null values
@@ -33,4 +33,16 @@ open class LazyObject: LazyMapping {
         self.dictionary = NSMutableDictionary(dictionary: pruneNullValues ? dictionary.pruneNullValues() : dictionary)
     }
 
+    /**
+     Instantiates the class with the given JSON (Swift) dictionary
+     
+     - parameter dictionary:      JSON dictionary
+     - parameter pruneNullValues: Whether or not to prune keys with null values
+     
+     - returns: An object with lazily transformed properties from the underlying dictionary
+     */
+    public convenience init(dictionary: [AnyHashable: Any], pruneNullValues: Bool = true) {
+        self.init(dictionary: dictionary as NSDictionary)
+    }
+    
 }
