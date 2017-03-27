@@ -13,8 +13,8 @@ extension Bool: LazyConvertible {
     public static func convert(_ value: Any?) throws -> Bool {
         if let number = value as? NSNumber {
             return number.boolValue
-        } else if let boolString = value as? String, let bool = Bool(boolString) {
-            return bool
+        } else if let boolString = value as? String {
+            return boolString.toBool()
         }
         
         throw LazyMappingError.unexpectedTypeError(value: value, type: NSNumber.self)
