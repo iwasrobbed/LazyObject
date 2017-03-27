@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Pruning
+
 extension NSDictionary {
 
     /**
@@ -24,6 +26,12 @@ extension NSDictionary {
         return nonNullDictionary
     }
     
+}
+
+// MARK: - KVO Safety
+
+extension NSDictionary {
+    
     /**
      Safely returns a value at the given key / key path if it exists
      
@@ -39,5 +47,41 @@ extension NSDictionary {
         }
         return object
     }
+    
+}
 
+extension NSMutableDictionary {
+    
+    /// Safely sets a value for a given key path, making existing nodes mutable if necessary
+    ///
+    /// - Parameters:
+    ///   - value: The value to set
+    ///   - keyPath: The key path to use
+    func lazySet(value: Any?, forKeyPath keyPath: String) {
+        _makeDirectoriesMutable(forKeyPath: keyPath)
+        setValue(value, forKeyPath: keyPath)
+    }
+    
+    /// Recursively traverses the given key path and turns any `NSDictionary` objects it finds into `NSMutableDictionary` equivalents so we can write back to the key path
+    ///
+    /// - Parameter keyPath: The key path to search
+    fileprivate func _makeDirectoriesMutable(forKeyPath keyPath: String) {
+        let keys = keyPath.characters.split(separator: ".").map(String.init)
+        var currentKeyPath: String?
+        
+        keys.forEach { key in
+            if currentKeyPath != nil {
+                let nextKeyPathAddition = String(format: ".%@", key)
+                currentKeyPath = currentKeyPath?.appending(nextKeyPathAddition)
+            } else {
+                currentKeyPath = key
+            }
+            
+            if let currentKeyPath = currentKeyPath, let value = lazyValue(forKeyPath: currentKeyPath) as? NSDictionary {
+                setValue(value.mutableCopy(), forKeyPath: currentKeyPath)
+            }
+        }
+        
+    }
+    
 }

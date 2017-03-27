@@ -172,11 +172,7 @@ public extension LazyMapping {
      - parameter keyPath: The key / key path to set the value for
      */
     public func setObject(_ object: Any?, keyPath: String) {
-        if let object = object {
-            dictionary.setObject(object, forKey: keyPath as NSCopying)
-        } else {
-            dictionary.removeObject(forKey: keyPath)
-        }
+        dictionary.lazySet(value: object, forKeyPath: keyPath)
     }
 
 }
@@ -198,7 +194,7 @@ private extension LazyMapping {
             throw LazyMappingError.conversionError(keyPath: keyPath, value: value, type: T.self)
         }
 
-        dictionary.setValue(typedValue, forKeyPath: keyPath)
+        dictionary.lazySet(value: typedValue, forKeyPath: keyPath)
         return typedValue
     }
 
@@ -215,7 +211,7 @@ private extension LazyMapping {
 
         let mappedArray = array.map { T(dictionary: $0, pruneNullValues: true) }
 
-        dictionary.setValue(mappedArray, forKeyPath: keyPath)
+        dictionary.lazySet(value: mappedArray, forKeyPath: keyPath)
         return mappedArray
     }
 
@@ -229,7 +225,7 @@ private extension LazyMapping {
 
         // Otherwise, try to convert it to the given type
         let transformedValue = try convert(value)
-        dictionary.setValue(transformedValue, forKeyPath: keyPath)
+        dictionary.lazySet(value: transformedValue, forKeyPath: keyPath)
         return transformedValue
     }
 
